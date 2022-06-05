@@ -1,4 +1,4 @@
-import "./style.css";
+/*import "./style.css";
 
 const webPage = (() => {
     const API_KEY = 'd3d83fbc7cd370385cd75c9f3c64ea18';
@@ -78,5 +78,15 @@ const webPage = (() => {
         weatherDiv.appendChild(descriptionDiv);        
     }
 
+    displayWebPage();
+})();*/
+
+
+
+
+import displayWebPage from "./dom.js";
+import "./style.css";
+
+const webPage = (() => {
     displayWebPage();
 })();
