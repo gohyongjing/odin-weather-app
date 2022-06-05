@@ -1,5 +1,17 @@
-const weather = (() => {
+const Weather = (() => {
     const API_KEY = 'd3d83fbc7cd370385cd75c9f3c64ea18';
+
+    function convertCelsiusToFarenheit(temp) {
+        return temp * 1.8 + 32;
+    }
+
+    function convertFarenheitToCelsius(temp) {
+        return (temp - 32) / 1.8;
+    }
+   
+    function convertKelvinToCelsius(temp) {
+        return temp - 273.15;
+    }
 
     function parseWeather(response) {
         const responseJson = response.json();
@@ -9,8 +21,8 @@ const weather = (() => {
                 result['cityName'] = json['name'];
                 result['mainWeather'] = json['weather'][0]['main'];
                 result['weatherDescription'] = json['weather'][0]['description'];
-                result['temperature'] = json['main']['temp'];
-                result['feelsLike'] = json['main']['feels_like'];
+                result['temperature'] = convertKelvinToCelsius(json['main']['temp']);
+                result['feelsLike'] = convertKelvinToCelsius(json['main']['feels_like']);
                 result['pressure'] = json['main']['pressure'];
                 result['humidity'] = json['main']['humidity'];
                 return result;
@@ -29,7 +41,7 @@ const weather = (() => {
             .then(parseWeather);
     }
 
-    return { getWeather };
+    return { getWeather, convertCelsiusToFarenheit};
 })();
 
-export default weather.getWeather;
+export default Weather;
