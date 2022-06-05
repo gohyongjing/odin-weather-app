@@ -9,6 +9,10 @@ const weather = (() => {
                 result['cityName'] = json['name'];
                 result['mainWeather'] = json['weather'][0]['main'];
                 result['weatherDescription'] = json['weather'][0]['description'];
+                result['temperature'] = json['main']['temp'];
+                result['feelsLike'] = json['main']['feels_like'];
+                result['pressure'] = json['main']['pressure'];
+                result['humidity'] = json['main']['humidity'];
                 return result;
             })
             .catch(handleError);

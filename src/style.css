@@ -28,6 +28,22 @@ form {
     background-color: salmon;
 }
 
-.weather div:first-child {
+.weather div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.weather > div:first-child {
+    font-size: 34px;
     font-weight: 600;
+}
+
+.weather div > input[type="button"] {
+    border: 2px solid darksalmon;
+    background-color: pink;
+}
+
+.weather div > input[type="button"]:hover {
+    background-color: darksalmon;
 }
